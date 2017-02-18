@@ -1,0 +1,24 @@
+-classpath
+'C:/Users/Guido/.m2/repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar;C:/Users/Guido/.m2/repository/org/apache/commons/commons-math3/3.6.1/commons-math3-3.6.1.jar;C:/Users/Guido/.m2/repository/com/martiansoftware/jsap/2.1/jsap-2.1.jar;C:/Users/Guido/.m2/repository/it/unimi/dsi/fastutil/7.0.12/fastutil-7.0.12.jar;C:/Users/Guido/.m2/repository/it/unimi/dsi/dsiutils/2.3.2/dsiutils-2.3.2.jar;C:/Users/Guido/.m2/repository/net/sf/jung/jung-algorithms/2.1/jung-algorithms-2.1.jar;C:/Users/Guido/.m2/repository/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4.jar;C:/Users/Guido/.m2/repository/commons-io/commons-io/2.4/commons-io-2.4.jar;C:/Users/Guido/.m2/repository/commons-configuration/commons-configuration/1.8/commons-configuration-1.8.jar;C:/Users/Guido/.m2/repository/it/unimi/dsi/webgraph/3.5.2/webgraph-3.5.2.jar;C:/Users/Guido/.m2/repository/ch/qos/logback/logback-core/1.1.7/logback-core-1.1.7.jar;C:/Users/Guido/.m2/repository/net/sf/jung/jung-api/2.1/jung-api-2.1.jar;C:/Users/Guido/.m2/repository/it/unimi/dsi/sux4j/4.0.0/sux4j-4.0.0.jar;C:/Users/Guido/.m2/repository/commons-collections/commons-collections/20040616/commons-collections-20040616.jar;C:/Users/Guido/.m2/repository/net/sf/jung/jung-io/2.1/jung-io-2.1.jar;C:/Users/Guido/.m2/repository/org/slf4j/slf4j-api/1.7.21/slf4j-api-1.7.21.jar;C:/Users/Guido/.m2/repository/ch/qos/logback/logback-classic/1.1.7/logback-classic-1.1.7.jar;C:/Users/Guido/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar;C:/Users/Guido/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar;C:/Users/Guido/.m2/repository/com/google/guava/guava/19.0/guava-19.0.jar'
+-encoding
+'UTF-8'
+-private
+-sourcepath
+'C:/Users/Guido/Documents/GitHub/GraphCompressionByBFS/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2017. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/Guido/Documents/GitHub/GraphCompressionByBFS/javadoc'
+-docencoding
+'UTF-8'
+-doctitle
+'GraphCompressionByBFS 0.3.3 API'
+-linkoffline
+'http://docs.oracle.com/javase/8/docs/api' 'C:/Users/Guido/Documents/GitHub/GraphCompressionByBFS/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'GraphCompressionByBFS 0.3.3 API'
