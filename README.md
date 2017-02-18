@@ -11,7 +11,7 @@ useless changes.
 Feel free to branch the project, modify it, and write something better than this. I don't think to have time to improve this software however,
 you can contact me for any information (do not expect quick answers, sorry).
 
-You can download the original paper from (MDPI)[http://www.mdpi.com/1999-4893/2/3/1031].
+You can download the original paper from [MDPI](http://www.mdpi.com/1999-4893/2/3/1031).
 Please use the following `BibTeX` entry if you would like to cite this software:
 ```
 @Article{ad-gcbfs-09,
