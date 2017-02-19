@@ -58,3 +58,7 @@ nbdist/
 /.classpath
 /.project
 target/
+/datasets/
+/gc.bat
+/offset.bat
+/pagerank.bat

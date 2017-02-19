@@ -43,6 +43,15 @@ to remove `WebGraph` from the requirements.
 
 *Note: The original project was compiled under Java 6 so if you need to run it in Java 6 just few (very simple) changes are required*
 
+**IMPORTANT**
+
+**The program was tested under Java 6 but from Java 7 the Java merge algorithm was changed.
+This is causing some issue, please use the `java.util.Arrays.useLegacyMergeSort=true` option:**
+```
+java -Djava.util.Arrays.useLegacyMergeSort=true -Xmx4g -Xms512m [CLASSPATH] it.uniroma3.dia.gc.Main OPTIONS
+```
+**I will check the error and hopefully fixing it.**
+
 ## Installation
 
 Download the jar file, set `WebGraph` into the classpath, and that's it.
@@ -95,12 +104,12 @@ Parsing-Compression phase.
 
 Loading graph... done.
 
-Nodes: 5 Links: 7 Level: 8 Root: 0
+Nodes: 5 Links: 7 Level: 1000 Root: 1
 
 BFS Compression: 100% (Links removed: 3) in 0 m 0 s                 
 Writing .map file... done.
 
-Size: 48 bits (6,857 bits/link)
+Size: 69 bits (9,857 bits/link)
 ```
 
 Now you have three more files:
@@ -116,16 +125,16 @@ java it.uniroma3.dia.gc.algorithms.PageRank simple 100 0.2
 It works!
 ```
 Loading Graph... done.
-Time: 11 ms
+Time: 20 ms
 Creating PageRank... done.
-Time: 1 ms
+Time: 0 ms
 Computing ranks... done.
-Time: 1 ms - Time/Iteration:  0,01 ms
- 1. Page:          3	Rank: 0,20992
- 2. Page:          1	Rank: 0,20802
- 3. Page:          4	Rank: 0,20802
- 4. Page:          0	Rank: 0,18702
- 5. Page:          2	Rank: 0,18702
+Time: 6 ms - Time/Iteration:  0,06 ms
+ 1. Page:          1	Rank: 0,20992
+ 2. Page:          0	Rank: 0,20802
+ 3. Page:          2	Rank: 0,20802
+ 4. Page:          3	Rank: 0,18702
+ 5. Page:          4	Rank: 0,18702
  6. Page:          0	Rank: 0,00000
 ...
 ```

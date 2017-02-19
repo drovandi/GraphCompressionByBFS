@@ -56,71 +56,73 @@ public final class ASCIIGraph implements Graph {
     public ASCIIGraph(final String fileName, final boolean inLinks) throws Exception {
 	int i,j;
 	this.graphName=fileName;
-	BufferedReader reader=new BufferedReader(new FileReader(fileName+".net"));
-	N=Integer.parseInt(reader.readLine());
-	if (N<=0) {
-	    reader.close();
-	    throw new ASCIIGraphFormatException("Network dimension "+N+" less than or euqal to 0!");
-	}
-	this.indegrees=null;
-	this.inLinks=inLinks;
-	long edges=0;
-	this.nodes=new Node[N];
-	for (i=0;i<N;i++) {
-	    String s=reader.readLine();
-	    if (s==null) break;
-	    String[] tokens=s.split(" ");
-	    final int degree=tokens.length-1;
-	    int id=Integer.parseInt(tokens[0]);
-	    if (id<0 || id>=N) {
-		reader.close();
-		throw new ASCIIGraphFormatException("Node out of bounds: node "+id+
-						    " is greater than or equal to the network dimension "+N+"!");
-	    }
-	    if (this.nodes[id]!=null) {
-		reader.close();
-		throw new ASCIIGraphFormatException("Wrong network format: multiple "+id+"-node lines!");
-	    }
-	    Node node=new Node(id,degree);
-	    this.nodes[id]=node;
-	    for (j=1;j<tokens.length;j++) {
-		edges++;
-		id=Integer.parseInt(tokens[j]);
-		if (id<0 || id>=N) {
-		    reader.close();
-		    throw new ASCIIGraphFormatException("Node out of bounds: node "+id+
-							" is greater than or equal to the network dimension "+N+"!");
-		}
-		node.addOutLink(id);
-	    }
-	}
-        this.edges = edges;
-	if (!inLinks) {
-	    for (i=0;i<N;i++) {
-		if (this.nodes[i]==null) this.nodes[i]=new Node(i,0);
-		else this.nodes[i].sort();
-	    }
-	} else {
-	    for (i=0;i<N;i++) {
-		if (this.nodes[i]==null) {
-		    this.nodes[i]=new Node(i,0);
-		} else {
-		    final int[] out=nodes[i].getOutLinks();
-		    for (j=0;j<out.length;j++) {
-			if (nodes[out[j]]==null) nodes[out[j]]=new Node(i,0);
-			nodes[out[j]].incInDegree();
-		    }
-		}
-	    }
-	    for (i=0;i<N;i++) {
-		final int[] out=nodes[i].getOutLinks();
-		for (j=0;j<out.length;j++)
-		    nodes[out[j]].addInLink(i);
-	    }
-	    for (i=0;i<N;i++)
-		this.nodes[i].sort();
-	}
-
+        try (FileReader fr = new FileReader(fileName+".net")) {
+            try (BufferedReader reader=new BufferedReader(fr)) {
+                N=Integer.parseInt(reader.readLine());
+                if (N<=0) {
+                    reader.close();
+                    throw new ASCIIGraphFormatException("Network dimension "+N+" less than or euqal to 0!");
+                }
+                this.indegrees=null;
+                this.inLinks=inLinks;
+                long edges=0;
+                this.nodes=new Node[N];
+                for (i=0;i<N;i++) {
+                    String s=reader.readLine();
+                    if (s==null) break;
+                    String[] tokens=s.split(" ");
+                    final int degree=tokens.length-1;
+                    int id=Integer.parseInt(tokens[0]);
+                    if (id<0 || id>=N) {
+                        reader.close();
+                        throw new ASCIIGraphFormatException("Node out of bounds: node "+id+
+                                                            " is greater than or equal to the network dimension "+N+"!");
+                    }
+                    if (this.nodes[id]!=null) {
+                        reader.close();
+                        throw new ASCIIGraphFormatException("Wrong network format: multiple "+id+"-node lines!");
+                    }
+                    Node node=new Node(id,degree);
+                    this.nodes[id]=node;
+                    for (j=1;j<tokens.length;j++) {
+                        edges++;
+                        id=Integer.parseInt(tokens[j]);
+                        if (id<0 || id>=N) {
+                            reader.close();
+                            throw new ASCIIGraphFormatException("Node out of bounds: node "+id+
+                                                                " is greater than or equal to the network dimension "+N+"!");
+                        }
+                        node.addOutLink(id);
+                    }
+                }
+                this.edges = edges;
+                if (!inLinks) {
+                    for (i=0;i<N;i++) {
+                        if (this.nodes[i]==null) this.nodes[i]=new Node(i,0);
+                        else this.nodes[i].sort();
+                    }
+                } else {
+                    for (i=0;i<N;i++) {
+                        if (this.nodes[i]==null) {
+                            this.nodes[i]=new Node(i,0);
+                        } else {
+                            final int[] out=nodes[i].getOutLinks();
+                            for (j=0;j<out.length;j++) {
+                                if (nodes[out[j]]==null) nodes[out[j]]=new Node(i,0);
+                                nodes[out[j]].incInDegree();
+                            }
+                        }
+                    }
+                    for (i=0;i<N;i++) {
+                        final int[] out=nodes[i].getOutLinks();
+                        for (j=0;j<out.length;j++)
+                            nodes[out[j]].addInLink(i);
+                    }
+                    for (i=0;i<N;i++)
+                        this.nodes[i].sort();
+                }
+            }
+        }
     }
 
     @Override
