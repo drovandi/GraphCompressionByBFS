@@ -42,6 +42,7 @@
                 <configuration>
                     <destDir>${project.basedir}/javadoc</destDir>
                     <show>private</show>
+                    <notimestamp>true</notimestamp>
                 </configuration>
             </plugin>
             <plugin>

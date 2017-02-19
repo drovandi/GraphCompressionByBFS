@@ -31,7 +31,7 @@ public final class ASCIIGraph implements Graph {
 
     private final String graphName;
     private final int N;
-    private long edges;
+    private final long edges;
     private final Node[] nodes;
     private final boolean inLinks;
     private int[] indegrees;
@@ -64,7 +64,7 @@ public final class ASCIIGraph implements Graph {
 	}
 	this.indegrees=null;
 	this.inLinks=inLinks;
-	this.edges=0;
+	long edges=0;
 	this.nodes=new Node[N];
 	for (i=0;i<N;i++) {
 	    String s=reader.readLine();
@@ -84,7 +84,7 @@ public final class ASCIIGraph implements Graph {
 	    Node node=new Node(id,degree);
 	    this.nodes[id]=node;
 	    for (j=1;j<tokens.length;j++) {
-		this.edges++;
+		edges++;
 		id=Integer.parseInt(tokens[j]);
 		if (id<0 || id>=N) {
 		    reader.close();
@@ -94,6 +94,7 @@ public final class ASCIIGraph implements Graph {
 		node.addOutLink(id);
 	    }
 	}
+        this.edges = edges;
 	if (!inLinks) {
 	    for (i=0;i<N;i++) {
 		if (this.nodes[i]==null) this.nodes[i]=new Node(i,0);

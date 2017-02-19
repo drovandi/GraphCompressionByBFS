@@ -28,7 +28,7 @@ public final class PiDecoder {
      * @param k the base of the &pi;-Code
      * @return 
      */
-    public final int decode0(final int k) {
+    public int decode0(final int k) {
 	int l;
 	if (in.readBit()) return 0;
 	for (l=1;!in.readBit();l++);
@@ -39,7 +39,7 @@ public final class PiDecoder {
      * Decode a number in the interval [0; &#8734;) using &pi;<small><sub>0</sub></small>-Code.
      * @return 
      */
-    public final int decode0K0() {
+    public int decode0K0() {
 	int l;
 	if (in.readBit()) return 0;
 	for (l=0;!in.readBit();l++);
@@ -50,7 +50,7 @@ public final class PiDecoder {
      * Decode a number in the interval [1; &#8734;) using &pi;<small><sub>0</sub></small>-Code.
      * @return 
      */
-    public final int decodeK0() {
+    public int decodeK0() {
 	int l;
 	for (l=0;!in.readBit();l++);
 	return (l==0)?1:(in.readBits(l)|(1<<l));
@@ -62,7 +62,7 @@ public final class PiDecoder {
      * @param k the base of the &pi;-Code
      * @return 
      */
-    public final int decode(final int k) {
+    public int decode(final int k) {
 	int l;
 	for (l=1;!in.readBit();l++);
 	return ((l=(l<<k)-in.readBits(k)-1)==0)?1:(in.readBits(l)|(1<<l));

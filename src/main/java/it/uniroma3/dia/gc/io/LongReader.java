@@ -12,40 +12,45 @@ public final class LongReader implements Reader {
     private long[] buffer;
     private final long dimension;
 
-    public final void printWord(final PrintStream out) {
+    @Override
+    public void printWord(final PrintStream out) {
 	out.println(buffer[word]+":"+bit);
     }
 
     public LongReader(final String fileName) throws Exception {
 	int i;
-	final FileInputStream file=new FileInputStream(fileName);
-    	this.word=0;
-    	this.bit=WORD_SIZE;
-	this.dimension=file.getChannel().size()/8;
-	if (dimension<=Integer.MAX_VALUE) {
-	    this.buffer=new long[(int)dimension];
-	    final byte[] tmp=new byte[100000000];
-	    int size,pos=0;
-	    while ( (size=file.read(tmp))!=-1 ) {
-		for (i=0;i<size;i+=4) {
-		    buffer[pos]=(tmp[i]<<56)|(tmp[i+1]<<48)|(tmp[i+2]<<40)|(tmp[i+3]<<32)|
-			(tmp[i+4]<<24)|(tmp[i+5]<<16)|(tmp[i+6]<<8)|(tmp[i+7]);
-		    pos++;
-		}
-	    }
-	} else {
-	    throw new Exception("Huge compressed graph support is not implemented. I'm sorry!");
-	}
-	file.close();
+	try (FileInputStream file=new FileInputStream(fileName)) {
+            this.word=0;
+            this.bit=WORD_SIZE;
+            this.dimension=file.getChannel().size()/8;
+            if (dimension<=Integer.MAX_VALUE) {
+                this.buffer=new long[(int)dimension];
+                final byte[] tmp=new byte[100000000];
+                int size,pos=0;
+                while ( (size=file.read(tmp))!=-1 ) {
+                    for (i=0;i<size;i+=4) {
+                        buffer[pos]=(tmp[i]<<56)|(tmp[i+1]<<48)|(tmp[i+2]<<40)|(tmp[i+3]<<32)|
+                            (tmp[i+4]<<24)|(tmp[i+5]<<16)|(tmp[i+6]<<8)|(tmp[i+7]);
+                        pos++;
+                    }
+                }
+            } else {
+                throw new Exception("Huge compressed graph support is not implemented. I'm sorry!");
+            }
+        }
     }
 
-    public final void close() {
+    @Override
+    public void close() {
     }
 
-    public final long getPosition() {
+    @Override
+    public long getPosition() {
 	return (((long)word)<<6)|bit;
     }
-    public final void setPosition(final long pos) {
+    
+    @Override
+    public void setPosition(final long pos) {
 	word=(int)(pos>>>6);
 	bit=(int)(pos&0x0000003F);
     }
@@ -57,11 +62,13 @@ public final class LongReader implements Reader {
 // 	bit=(pos&0x0000001F);
 //     }
 
-    public final long getDimension() {
+    @Override
+    public long getDimension() {
 	return this.dimension;
     }
 
-    public final boolean readBit() {
+    @Override
+    public boolean readBit() {
         long r=buffer[word];
         if (--bit==0) {
             word++;
@@ -92,7 +99,8 @@ public final class LongReader implements Reader {
 // 	return r;
 //     }
 
-    public final int readBits(final int dim) {
+    @Override
+    public int readBits(final int dim) {
         int l;
 	long r;
 	if (dim==0) return 0;
@@ -109,7 +117,8 @@ public final class LongReader implements Reader {
 	return (int)r;
     }
 
-    public final long readLong() {
+    @Override
+    public long readLong() {
 	final String s=Integer.toHexString(readBits(4))+
 	    Integer.toHexString(readBits(4))+
 	    Integer.toHexString(readBits(4))+
@@ -129,7 +138,8 @@ public final class LongReader implements Reader {
 	return Long.parseLong(s,16);
     }
 
-    public final int readInt() {
+    @Override
+    public int readInt() {
 	final String s=Integer.toHexString(readBits(4))+
 	    Integer.toHexString(readBits(4))+
 	    Integer.toHexString(readBits(4))+

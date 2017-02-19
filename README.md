@@ -2,7 +2,7 @@
 
 The `Graph Compression by BFS` project helps you to compress your graphs/networks in an efficient way using just a simple BFS and some
 more complex tricks. You can use the compressed version directly to query and navigate your original graph, so it is possible to deal with
-huge networks in main memory.
+huge networks in main memory. Overall it is suitable for the Web Graph since it is able to exploit all the redundacies tipical of this graph.
 
 This is a very old project of mine based on an article published with Prof. Alberto Apostolico. The original webpage is on
 [my university site](http://www.dia.uniroma3.it/~drovandi/software.php), here you find the same code of the last version (0.3.2) with very minor
@@ -38,7 +38,7 @@ Very simple requirements:
 To compress by BFS, `WebGraph` is not necessary (but you need to delete a couple of classes and compile again).
 
 Before this project, `WebGraph` was the only project (standard de facto) so I used it to test `GCbyBFS` since they provide also
-[excellent datasets](http://law.di.unimi.it/datasets.php). The work by Paolo Boldi and Sebastiano Vigna is a great work, so I'm not planning
+[excellent datasets](http://law.di.unimi.it/datasets.php). The project by Paolo Boldi and Sebastiano Vigna is a great work, so I'm not planning
 to remove `WebGraph` from the requirements.
 
 *Note: The original project was compiled under Java 6 so if you need to run it in Java 6 just few (very simple) changes are required*

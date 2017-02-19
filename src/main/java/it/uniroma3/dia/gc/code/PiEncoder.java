@@ -50,7 +50,7 @@ public final class PiEncoder {
      * @return 
      * @throws java.lang.Exception
      */
-    public final int encode(final int n, final int k) throws Exception {
+    public int encode(final int n, final int k) throws Exception {
 	final int length;
 	int i,s,r,nn,l;
 	if (n<=0) throw new Exception("Encoder value less than or equal to 0!");
@@ -79,7 +79,7 @@ public final class PiEncoder {
      * @return 
      * @throws java.lang.Exception
      */
-    public final int encode0(final int n, final int k) throws Exception {
+    public int encode0(final int n, final int k) throws Exception {
 	if (n<0) throw new Exception("Encoder value less than 0!");
 	if (k<0) throw new Exception("Encoder parameter less than 0!");
 	if (n==0) {
@@ -98,7 +98,7 @@ public final class PiEncoder {
      * @return 
      * @throws java.lang.Exception
      */
-    public final int[] code(final int n, final int k) throws Exception {
+    public int[] code(final int n, final int k) throws Exception {
 	if (n<=0) throw new Exception("Encoder value less than or equal to 0!");
 	if (k<0) throw new Exception("Encoder parameter less than 0!");
 	int i,s,r,nn,l;
@@ -138,7 +138,7 @@ public final class PiEncoder {
      * @return 
      * @throws java.lang.Exception
      */
-    public final int[] code0(final int n, final int k) throws Exception {
+    public int[] code0(final int n, final int k) throws Exception {
 	if (n<0) throw new Exception("Encoder value less than 0!");
 	if (k<0) throw new Exception("Encoder parameter less than 0!");
 	if (n==0) return new int[] {1,1};

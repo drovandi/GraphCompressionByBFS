@@ -5,15 +5,15 @@ import java.io.PrintStream;
 
 public interface Reader {
 
-    public void printWord(final PrintStream out);
-    public void close();
-    public long getPosition();
-    public void setPosition(final long pos);
-    public long getDimension();
-    public boolean readBit();
-    public int readBits(final int dim);
-    public long readLong();
-    public int readInt();
+    void printWord(final PrintStream out);
+    void close();
+    long getPosition();
+    void setPosition(final long pos);
+    long getDimension();
+    boolean readBit();
+    int readBits(final int dim);
+    long readLong();
+    int readInt();
 
 }
 

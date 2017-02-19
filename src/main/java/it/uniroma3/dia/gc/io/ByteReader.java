@@ -12,49 +12,54 @@ public final class ByteReader implements Reader {
     private byte[] buffer;
     private final long dimension;
 
-    public final void printWord(final PrintStream out) {
+    @Override
+    public void printWord(final PrintStream out) {
 	out.println(buffer[word]+":"+bit);
     }
 
     public ByteReader(final String fileName) throws Exception {
-	final FileInputStream file=new FileInputStream(fileName);
-    	this.word=0;
-    	this.bit=WORD_SIZE;
-	this.dimension=file.getChannel().size();
-	if (dimension<=100000000) {
-	    this.buffer=new byte[(int)dimension];
-	    file.read(this.buffer);
-	} else if (dimension<=Integer.MAX_VALUE) {
-	    this.buffer=new byte[(int)dimension];
-	    final byte[] tmp=new byte[100000000];
-	    int size,pos=0;
-	    while ( (size=file.read(tmp))!=-1 ) {
-		System.arraycopy(tmp,0,buffer,pos,size);
-		pos+=size;
-	    }
-	} else {
-	    throw new Exception("Huge compressed graph support is not implemented. I'm sorry!");
-// 	    int pages=(int)(dimension/Integer.MAX_VALUE+1);
-// 	    this.buffer=new byte[pages][];
-// 	    for (i=0;i<pages-1;i++) this.buffer[i]=new byte[Integer.MAX_VALUE];
-// 	    this.buffer[pages-1]=new byte[(int)(dimension-(page-1)*Integer.MAX_VALUE)];
-// 	    final byte[] tmp=new byte[100000000];
-// 	    int size,pos=0;
-// 	    while ( (size=file.read(tmp))!=-1 ) {
-// 		System.arraycopy(tmp,0,buffer,pos,size);
-// 		pos+=size;
-// 	    }
-	}
-	file.close();
+	try (FileInputStream file=new FileInputStream(fileName)) {
+            this.word=0;
+            this.bit=WORD_SIZE;
+            this.dimension=file.getChannel().size();
+            if (dimension<=100000000) {
+                this.buffer=new byte[(int)dimension];
+                file.read(this.buffer);
+            } else if (dimension<=Integer.MAX_VALUE) {
+                this.buffer=new byte[(int)dimension];
+                final byte[] tmp=new byte[100000000];
+                int size,pos=0;
+                while ( (size=file.read(tmp))!=-1 ) {
+                    System.arraycopy(tmp,0,buffer,pos,size);
+                    pos+=size;
+                }
+            } else {
+                throw new Exception("Huge compressed graph support is not implemented. I'm sorry!");
+    // 	    int pages=(int)(dimension/Integer.MAX_VALUE+1);
+    // 	    this.buffer=new byte[pages][];
+    // 	    for (i=0;i<pages-1;i++) this.buffer[i]=new byte[Integer.MAX_VALUE];
+    // 	    this.buffer[pages-1]=new byte[(int)(dimension-(page-1)*Integer.MAX_VALUE)];
+    // 	    final byte[] tmp=new byte[100000000];
+    // 	    int size,pos=0;
+    // 	    while ( (size=file.read(tmp))!=-1 ) {
+    // 		System.arraycopy(tmp,0,buffer,pos,size);
+    // 		pos+=size;
+    // 	    }
+            }
+        }
     }
 
-    public final void close() {
+    @Override
+    public void close() {
     }
 
-    public final long getPosition() {
+    @Override
+    public long getPosition() {
 	return (((long)word)<<6)|bit;
     }
-    public final void setPosition(final long pos) {
+    
+    @Override
+    public void setPosition(final long pos) {
 	word=(int)(pos>>>6);
 	bit=(int)(pos&0x0000003F);
     }
@@ -66,11 +71,13 @@ public final class ByteReader implements Reader {
 // 	bit=(pos&0x0000001F);
 //     }
 
-    public final long getDimension() {
+    @Override
+    public long getDimension() {
 	return this.dimension;
     }
 
-    public final boolean readBit() {
+    @Override
+    public boolean readBit() {
         int r=buffer[word];
         if (--bit==0) {
             word++;
@@ -101,7 +108,8 @@ public final class ByteReader implements Reader {
 // 	return r;
 //     }
 
-    public final int readBits(final int dim) {
+    @Override
+    public int readBits(final int dim) {
         int l,r;
 	if (dim==0) return 0;
 	if ( (l=dim-bit)<0 ) {
@@ -117,7 +125,8 @@ public final class ByteReader implements Reader {
 	return r;
     }
 
-    public final long readLong() {
+    @Override
+    public long readLong() {
 	final String s=Integer.toHexString(readBits(4))+
 	    Integer.toHexString(readBits(4))+
 	    Integer.toHexString(readBits(4))+
@@ -137,7 +146,8 @@ public final class ByteReader implements Reader {
 	return Long.parseLong(s,16);
     }
 
-    public final int readInt() {
+    @Override
+    public int readInt() {
 	final String s=Integer.toHexString(readBits(4))+
 	    Integer.toHexString(readBits(4))+
 	    Integer.toHexString(readBits(4))+

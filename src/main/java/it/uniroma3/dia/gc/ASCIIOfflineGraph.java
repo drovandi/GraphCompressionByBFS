@@ -31,7 +31,7 @@ public class ASCIIOfflineGraph implements Graph {
 
     private final String graphName;
     private final int N;
-    private long edges;
+    private final long edges;
     private final long[] offsets;
     private final RandomAccessFile reader;
 
@@ -51,13 +51,14 @@ public class ASCIIOfflineGraph implements Graph {
 	    throw new ASCIIGraphFormatException("Network dimension "+N+" less than or euqal to 0!");
 	}
 	this.offsets=new long[N];
-	this.edges=0;
+        long edges = 0;
 	for (i=0;i<N;i++) {
 	    this.offsets[i]=this.reader.getFilePointer();
 	    final String s=this.reader.readLine();
 	    if (s==null) break;
-	    this.edges+=new StringTokenizer(s).countTokens()-1;
+	    edges+=new StringTokenizer(s).countTokens()-1;
 	}
+        this.edges = edges;
     }
 
     @Override
