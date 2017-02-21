@@ -18,7 +18,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -75,13 +75,13 @@ var activeTableTab = "activeTableTab";
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
@@ -117,49 +117,6 @@ extends <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
-<!-- =========== FIELD SUMMARY =========== -->
-<ul class="blockList">
-<li class="blockList"><a name="field.summary">
-<!--   -->
-</a>
-<h3>Field Summary</h3>
-<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Field Summary table, listing fields, and an explanation">
-<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
-<tr>
-<th class="colFirst" scope="col">Modifier and Type</th>
-<th class="colLast" scope="col">Field and Description</th>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>private int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../it/uniroma3/dia/gc/io/Writer.html#bit">bit</a></span></code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>private byte[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../it/uniroma3/dia/gc/io/Writer.html#buffer">buffer</a></span></code>&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>private static int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../it/uniroma3/dia/gc/io/Writer.html#BUFFER">BUFFER</a></span></code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>private <a href="http://docs.oracle.com/javase/8/docs/api/java/io/DataOutputStream.html?is-external=true" title="class or interface in java.io">DataOutputStream</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../it/uniroma3/dia/gc/io/Writer.html#out">out</a></span></code>&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>private int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../it/uniroma3/dia/gc/io/Writer.html#tot">tot</a></span></code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>private int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../it/uniroma3/dia/gc/io/Writer.html#word">word</a></span></code>&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>private static int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../it/uniroma3/dia/gc/io/Writer.html#WORD_SIZE">WORD_SIZE</a></span></code>&nbsp;</td>
-</tr>
-</table>
-</li>
-</ul>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
 <ul class="blockList">
 <li class="blockList"><a name="constructor.summary">
@@ -194,23 +151,19 @@ extends <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../it/uniroma3/dia/gc/io/Writer.html#close--">close</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>private void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../it/uniroma3/dia/gc/io/Writer.html#flush-boolean-">flush</a></span>(boolean&nbsp;complete)</code>&nbsp;</td>
-</tr>
-<tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../it/uniroma3/dia/gc/io/Writer.html#printWord-java.io.PrintStream-">printWord</a></span>(<a href="http://docs.oracle.com/javase/8/docs/api/java/io/PrintStream.html?is-external=true" title="class or interface in java.io">PrintStream</a>&nbsp;out)</code>&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../it/uniroma3/dia/gc/io/Writer.html#writeBit-boolean-">writeBit</a></span>(boolean&nbsp;b)</code>&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../it/uniroma3/dia/gc/io/Writer.html#writeBits-int-int-">writeBits</a></span>(int&nbsp;v,
          int&nbsp;dim)</code>&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../it/uniroma3/dia/gc/io/Writer.html#writeLong-long-">writeLong</a></span>(long&nbsp;v)</code>&nbsp;</td>
 </tr>
@@ -230,85 +183,6 @@ extends <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
-<!-- ============ FIELD DETAIL =========== -->
-<ul class="blockList">
-<li class="blockList"><a name="field.detail">
-<!--   -->
-</a>
-<h3>Field Detail</h3>
-<a name="WORD_SIZE">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>WORD_SIZE</h4>
-<pre>private static final&nbsp;int WORD_SIZE</pre>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../../../constant-values.html#it.uniroma3.dia.gc.io.Writer.WORD_SIZE">Constant Field Values</a></dd>
-</dl>
-</li>
-</ul>
-<a name="BUFFER">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>BUFFER</h4>
-<pre>private static final&nbsp;int BUFFER</pre>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../../../constant-values.html#it.uniroma3.dia.gc.io.Writer.BUFFER">Constant Field Values</a></dd>
-</dl>
-</li>
-</ul>
-<a name="out">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>out</h4>
-<pre>private final&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/io/DataOutputStream.html?is-external=true" title="class or interface in java.io">DataOutputStream</a> out</pre>
-</li>
-</ul>
-<a name="buffer">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>buffer</h4>
-<pre>private final&nbsp;byte[] buffer</pre>
-</li>
-</ul>
-<a name="word">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>word</h4>
-<pre>private&nbsp;int word</pre>
-</li>
-</ul>
-<a name="bit">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>bit</h4>
-<pre>private&nbsp;int bit</pre>
-</li>
-</ul>
-<a name="tot">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>tot</h4>
-<pre>private&nbsp;int tot</pre>
-</li>
-</ul>
-</li>
-</ul>
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
 <ul class="blockList">
 <li class="blockList"><a name="constructor.detail">
@@ -392,25 +266,11 @@ extends <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?
 <a name="writeLong-long-">
 <!--   -->
 </a>
-<ul class="blockList">
+<ul class="blockListLast">
 <li class="blockList">
 <h4>writeLong</h4>
 <pre>public final&nbsp;int&nbsp;writeLong(long&nbsp;v)
                     throws <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</a></pre>
-<dl>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</a></code></dd>
-</dl>
-</li>
-</ul>
-<a name="flush-boolean-">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>flush</h4>
-<pre>private final&nbsp;void&nbsp;flush(boolean&nbsp;complete)
-                  throws <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</a></pre>
 <dl>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</a></code></dd>
@@ -471,13 +331,13 @@ extends <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>

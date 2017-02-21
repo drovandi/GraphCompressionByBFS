@@ -18,7 +18,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -75,13 +75,13 @@ var activeTableTab = "activeTableTab";
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
@@ -133,7 +133,7 @@ implements <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Comparato
  <code>0</code> then it is not represented.</p></div>
 <dl>
 <dt><span class="simpleTagLabel">Version:</span></dt>
-<dd>0.3.1.SLG</dd>
+<dd>0.3.4</dd>
 <dt><span class="simpleTagLabel">Author:</span></dt>
 <dd>Guido Drovandi</dd>
 </dl>
@@ -143,125 +143,6 @@ implements <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Comparato
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
-<!-- =========== FIELD SUMMARY =========== -->
-<ul class="blockList">
-<li class="blockList"><a name="field.summary">
-<!--   -->
-</a>
-<h3>Field Summary</h3>
-<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Field Summary table, listing fields, and an explanation">
-<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
-<tr>
-<th class="colFirst" scope="col">Modifier and Type</th>
-<th class="colLast" scope="col">Field and Description</th>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>private int[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../it/uniroma3/dia/gc/BFSParser.html#bfs">bfs</a></span></code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>private long</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../it/uniroma3/dia/gc/BFSParser.html#bfsMillis">bfsMillis</a></span></code>&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>private <a href="../../../../it/uniroma3/dia/gc/Chunk.html" title="class in it.uniroma3.dia.gc">Chunk</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../it/uniroma3/dia/gc/BFSParser.html#chunk">chunk</a></span></code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>private <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</a>,<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../it/uniroma3/dia/gc/BFSParser.html#comparison">comparison</a></span></code>&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>private <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</a>,<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../it/uniroma3/dia/gc/BFSParser.html#comparison2">comparison2</a></span></code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>private <a href="../../../../it/uniroma3/dia/gc/Compressor.html" title="class in it.uniroma3.dia.gc">Compressor</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../it/uniroma3/dia/gc/BFSParser.html#compressor">compressor</a></span></code>&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>private int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../it/uniroma3/dia/gc/BFSParser.html#counter">counter</a></span></code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>private <a href="http://docs.oracle.com/javase/8/docs/api/java/io/PrintStream.html?is-external=true" title="class or interface in java.io">PrintStream</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../it/uniroma3/dia/gc/BFSParser.html#debug">debug</a></span></code>&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>private long</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../it/uniroma3/dia/gc/BFSParser.html#E">E</a></span></code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>private int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../it/uniroma3/dia/gc/BFSParser.html#first">first</a></span></code>&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>private int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../it/uniroma3/dia/gc/BFSParser.html#firstNode">firstNode</a></span></code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>private <a href="../../../../it/uniroma3/dia/gc/Graph.html" title="interface in it.uniroma3.dia.gc">Graph</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../it/uniroma3/dia/gc/BFSParser.html#graph">graph</a></span></code>&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>private int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../it/uniroma3/dia/gc/BFSParser.html#lastP">lastP</a></span></code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>private int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../it/uniroma3/dia/gc/BFSParser.html#level">level</a></span></code>&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>private <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../it/uniroma3/dia/gc/BFSParser.html#log">log</a></span></code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>private <a href="http://docs.oracle.com/javase/8/docs/api/java/io/PrintStream.html?is-external=true" title="class or interface in java.io">PrintStream</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../it/uniroma3/dia/gc/BFSParser.html#map">map</a></span></code>&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>private int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../it/uniroma3/dia/gc/BFSParser.html#N">N</a></span></code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>private int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../it/uniroma3/dia/gc/BFSParser.html#nodeUsed">nodeUsed</a></span></code>&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>private <a href="http://docs.oracle.com/javase/8/docs/api/java/io/PrintStream.html?is-external=true" title="class or interface in java.io">PrintStream</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../it/uniroma3/dia/gc/BFSParser.html#out">out</a></span></code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>private <a href="http://docs.oracle.com/javase/8/docs/api/java/util/ArrayDeque.html?is-external=true" title="class or interface in java.util">ArrayDeque</a>&lt;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../it/uniroma3/dia/gc/BFSParser.html#queue">queue</a></span></code>&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>private int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../it/uniroma3/dia/gc/BFSParser.html#removed">removed</a></span></code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>private long[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../it/uniroma3/dia/gc/BFSParser.html#statistics">statistics</a></span></code>&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>private boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../it/uniroma3/dia/gc/BFSParser.html#stats">stats</a></span></code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>private int[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../it/uniroma3/dia/gc/BFSParser.html#traverse">traverse</a></span></code>&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>private int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../it/uniroma3/dia/gc/BFSParser.html#visitedNodes">visitedNodes</a></span></code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>private boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../it/uniroma3/dia/gc/BFSParser.html#zeros">zeros</a></span></code>&nbsp;</td>
-</tr>
-</table>
-</li>
-</ul>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
 <ul class="blockList">
 <li class="blockList"><a name="constructor.summary">
@@ -310,42 +191,26 @@ implements <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Comparato
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>private void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../it/uniroma3/dia/gc/BFSParser.html#addToQueue-int-">addToQueue</a></span>(int&nbsp;node)</code>&nbsp;</td>
-</tr>
-<tr id="i1" class="rowColor">
-<td class="colFirst"><code>private void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../it/uniroma3/dia/gc/BFSParser.html#BFS-int-">BFS</a></span>(int&nbsp;node)</code>&nbsp;</td>
-</tr>
-<tr id="i2" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../it/uniroma3/dia/gc/BFSParser.html#compare-java.lang.Integer-java.lang.Integer-">compare</a></span>(<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</a>&nbsp;n1,
        <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</a>&nbsp;n2)</code>
 <div class="block">Compare two nodes.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
-<td class="colFirst"><code>private void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../it/uniroma3/dia/gc/BFSParser.html#debugStatus--">debugStatus</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i4" class="altColor">
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../it/uniroma3/dia/gc/BFSParser.html#evaluate-int-int-">evaluate</a></span>(int&nbsp;level,
         int&nbsp;root)</code>
 <div class="block">Parse the graph using a BFS starting from the specified node.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>protected int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../it/uniroma3/dia/gc/BFSParser.html#getBFSValue-int-">getBFSValue</a></span>(int&nbsp;node)</code>&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</a>[][]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../it/uniroma3/dia/gc/BFSParser.html#nodeBFS-int-">nodeBFS</a></span>(int&nbsp;node)</code>&nbsp;</td>
-</tr>
-<tr id="i7" class="rowColor">
-<td class="colFirst"><code>private void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../it/uniroma3/dia/gc/BFSParser.html#printChunk-it.uniroma3.dia.gc.Chunk-">printChunk</a></span>(<a href="../../../../it/uniroma3/dia/gc/Chunk.html" title="class in it.uniroma3.dia.gc">Chunk</a>&nbsp;c)</code>&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -370,248 +235,6 @@ implements <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Comparato
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
-<!-- ============ FIELD DETAIL =========== -->
-<ul class="blockList">
-<li class="blockList"><a name="field.detail">
-<!--   -->
-</a>
-<h3>Field Detail</h3>
-<a name="level">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>level</h4>
-<pre>private&nbsp;int level</pre>
-</li>
-</ul>
-<a name="visitedNodes">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>visitedNodes</h4>
-<pre>private&nbsp;int visitedNodes</pre>
-</li>
-</ul>
-<a name="firstNode">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>firstNode</h4>
-<pre>private&nbsp;int firstNode</pre>
-</li>
-</ul>
-<a name="first">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>first</h4>
-<pre>private&nbsp;int first</pre>
-</li>
-</ul>
-<a name="removed">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>removed</h4>
-<pre>private&nbsp;int removed</pre>
-</li>
-</ul>
-<a name="counter">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>counter</h4>
-<pre>private&nbsp;int counter</pre>
-</li>
-</ul>
-<a name="lastP">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>lastP</h4>
-<pre>private&nbsp;int lastP</pre>
-</li>
-</ul>
-<a name="nodeUsed">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>nodeUsed</h4>
-<pre>private&nbsp;int nodeUsed</pre>
-</li>
-</ul>
-<a name="traverse">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>traverse</h4>
-<pre>private&nbsp;int[] traverse</pre>
-</li>
-</ul>
-<a name="bfsMillis">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>bfsMillis</h4>
-<pre>private&nbsp;long bfsMillis</pre>
-</li>
-</ul>
-<a name="zeros">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>zeros</h4>
-<pre>private&nbsp;boolean zeros</pre>
-</li>
-</ul>
-<a name="chunk">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>chunk</h4>
-<pre>private&nbsp;<a href="../../../../it/uniroma3/dia/gc/Chunk.html" title="class in it.uniroma3.dia.gc">Chunk</a> chunk</pre>
-</li>
-</ul>
-<a name="log">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>log</h4>
-<pre>private&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> log</pre>
-</li>
-</ul>
-<a name="comparison">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>comparison</h4>
-<pre>private&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</a>,<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</a>&gt; comparison</pre>
-</li>
-</ul>
-<a name="comparison2">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>comparison2</h4>
-<pre>private&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</a>,<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</a>&gt; comparison2</pre>
-</li>
-</ul>
-<a name="N">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>N</h4>
-<pre>private final&nbsp;int N</pre>
-</li>
-</ul>
-<a name="E">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>E</h4>
-<pre>private final&nbsp;long E</pre>
-</li>
-</ul>
-<a name="bfs">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>bfs</h4>
-<pre>private final&nbsp;int[] bfs</pre>
-</li>
-</ul>
-<a name="graph">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>graph</h4>
-<pre>private final&nbsp;<a href="../../../../it/uniroma3/dia/gc/Graph.html" title="interface in it.uniroma3.dia.gc">Graph</a> graph</pre>
-</li>
-</ul>
-<a name="statistics">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>statistics</h4>
-<pre>private final&nbsp;long[] statistics</pre>
-</li>
-</ul>
-<a name="compressor">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>compressor</h4>
-<pre>private final&nbsp;<a href="../../../../it/uniroma3/dia/gc/Compressor.html" title="class in it.uniroma3.dia.gc">Compressor</a> compressor</pre>
-</li>
-</ul>
-<a name="queue">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>queue</h4>
-<pre>private final&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/util/ArrayDeque.html?is-external=true" title="class or interface in java.util">ArrayDeque</a>&lt;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</a>&gt; queue</pre>
-</li>
-</ul>
-<a name="out">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>out</h4>
-<pre>private final&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/io/PrintStream.html?is-external=true" title="class or interface in java.io">PrintStream</a> out</pre>
-</li>
-</ul>
-<a name="map">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>map</h4>
-<pre>private final&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/io/PrintStream.html?is-external=true" title="class or interface in java.io">PrintStream</a> map</pre>
-</li>
-</ul>
-<a name="debug">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>debug</h4>
-<pre>private final&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/io/PrintStream.html?is-external=true" title="class or interface in java.io">PrintStream</a> debug</pre>
-</li>
-</ul>
-<a name="stats">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>stats</h4>
-<pre>private final&nbsp;boolean stats</pre>
-</li>
-</ul>
-</li>
-</ul>
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
 <ul class="blockList">
 <li class="blockList"><a name="constructor.detail">
@@ -682,15 +305,6 @@ implements <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Comparato
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="addToQueue-int-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>addToQueue</h4>
-<pre>private&nbsp;void&nbsp;addToQueue(int&nbsp;node)</pre>
-</li>
-</ul>
 <a name="getBFSValue-int-">
 <!--   -->
 </a>
@@ -734,24 +348,10 @@ implements <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Comparato
 </dl>
 </li>
 </ul>
-<a name="BFS-int-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>BFS</h4>
-<pre>private&nbsp;void&nbsp;BFS(int&nbsp;node)
-          throws <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</a></pre>
-<dl>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</a></code></dd>
-</dl>
-</li>
-</ul>
 <a name="evaluate-int-int-">
 <!--   -->
 </a>
-<ul class="blockList">
+<ul class="blockListLast">
 <li class="blockList">
 <h4>evaluate</h4>
 <pre>public final&nbsp;void&nbsp;evaluate(int&nbsp;level,
@@ -765,24 +365,6 @@ implements <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Comparato
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</a></code></dd>
 </dl>
-</li>
-</ul>
-<a name="printChunk-it.uniroma3.dia.gc.Chunk-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>printChunk</h4>
-<pre>private&nbsp;void&nbsp;printChunk(<a href="../../../../it/uniroma3/dia/gc/Chunk.html" title="class in it.uniroma3.dia.gc">Chunk</a>&nbsp;c)</pre>
-</li>
-</ul>
-<a name="debugStatus--">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>debugStatus</h4>
-<pre>private&nbsp;void&nbsp;debugStatus()</pre>
 </li>
 </ul>
 </li>
@@ -839,13 +421,13 @@ implements <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Comparato
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>

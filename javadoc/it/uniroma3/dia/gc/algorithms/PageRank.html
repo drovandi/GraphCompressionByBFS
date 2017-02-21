@@ -18,7 +18,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":9,"i3":10};
+var methods = {"i0":10,"i1":10,"i2":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -75,13 +75,13 @@ var activeTableTab = "activeTableTab";
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
@@ -117,53 +117,6 @@ extends <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
-<!-- =========== FIELD SUMMARY =========== -->
-<ul class="blockList">
-<li class="blockList"><a name="field.summary">
-<!--   -->
-</a>
-<h3>Field Summary</h3>
-<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Field Summary table, listing fields, and an explanation">
-<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
-<tr>
-<th class="colFirst" scope="col">Modifier and Type</th>
-<th class="colLast" scope="col">Field and Description</th>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>private double</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../it/uniroma3/dia/gc/algorithms/PageRank.html#alpha">alpha</a></span></code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>private <a href="../../../../../it/uniroma3/dia/gc/CompressedGraph.html" title="class in it.uniroma3.dia.gc">CompressedGraph</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../it/uniroma3/dia/gc/algorithms/PageRank.html#compressedPageRank">compressedPageRank</a></span></code>&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>private <a href="../../../../../it/uniroma3/dia/gc/Graph.html" title="interface in it.uniroma3.dia.gc">Graph</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../it/uniroma3/dia/gc/algorithms/PageRank.html#graph">graph</a></span></code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>private double</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../it/uniroma3/dia/gc/algorithms/PageRank.html#K">K</a></span></code>&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>private int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../it/uniroma3/dia/gc/algorithms/PageRank.html#N">N</a></span></code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>private double[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../it/uniroma3/dia/gc/algorithms/PageRank.html#newRanks">newRanks</a></span></code>&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>private int[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../it/uniroma3/dia/gc/algorithms/PageRank.html#outdegrees">outdegrees</a></span></code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>private double[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../it/uniroma3/dia/gc/algorithms/PageRank.html#ranks">ranks</a></span></code>&nbsp;</td>
-</tr>
-</table>
-</li>
-</ul>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
 <ul class="blockList">
 <li class="blockList"><a name="constructor.summary">
@@ -210,10 +163,6 @@ extends <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../it/uniroma3/dia/gc/algorithms/PageRank.html#main-java.lang.String:A-">main</a></span>(<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]&nbsp;args)</code>&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
-<td class="colFirst"><code>(package private) void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../it/uniroma3/dia/gc/algorithms/PageRank.html#reset--">reset</a></span>()</code>&nbsp;</td>
-</tr>
 </table>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -230,86 +179,6 @@ extends <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
-<!-- ============ FIELD DETAIL =========== -->
-<ul class="blockList">
-<li class="blockList"><a name="field.detail">
-<!--   -->
-</a>
-<h3>Field Detail</h3>
-<a name="N">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>N</h4>
-<pre>private&nbsp;int N</pre>
-</li>
-</ul>
-<a name="K">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>K</h4>
-<pre>private&nbsp;double K</pre>
-</li>
-</ul>
-<a name="alpha">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>alpha</h4>
-<pre>private final&nbsp;double alpha</pre>
-</li>
-</ul>
-<a name="ranks">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>ranks</h4>
-<pre>private&nbsp;double[] ranks</pre>
-</li>
-</ul>
-<a name="newRanks">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>newRanks</h4>
-<pre>private&nbsp;double[] newRanks</pre>
-</li>
-</ul>
-<a name="outdegrees">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>outdegrees</h4>
-<pre>private&nbsp;int[] outdegrees</pre>
-</li>
-</ul>
-<a name="graph">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>graph</h4>
-<pre>private final&nbsp;<a href="../../../../../it/uniroma3/dia/gc/Graph.html" title="interface in it.uniroma3.dia.gc">Graph</a> graph</pre>
-</li>
-</ul>
-<a name="compressedPageRank">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>compressedPageRank</h4>
-<pre>private final&nbsp;<a href="../../../../../it/uniroma3/dia/gc/CompressedGraph.html" title="class in it.uniroma3.dia.gc">CompressedGraph</a> compressedPageRank</pre>
-</li>
-</ul>
-</li>
-</ul>
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
 <ul class="blockList">
 <li class="blockList"><a name="constructor.detail">
@@ -380,19 +249,10 @@ extends <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?
 <a name="getRanks--">
 <!--   -->
 </a>
-<ul class="blockList">
+<ul class="blockListLast">
 <li class="blockList">
 <h4>getRanks</h4>
 <pre>public&nbsp;double[]&nbsp;getRanks()</pre>
-</li>
-</ul>
-<a name="reset--">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>reset</h4>
-<pre>void&nbsp;reset()</pre>
 </li>
 </ul>
 </li>
@@ -449,13 +309,13 @@ extends <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>

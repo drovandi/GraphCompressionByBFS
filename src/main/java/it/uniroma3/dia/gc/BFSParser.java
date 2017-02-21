@@ -22,7 +22,7 @@ import java.util.Map;
  * <code>0</code> then it is not represented.</p>
  *
  * @author  Guido Drovandi
- * @version 0.3.1.SLG
+ * @version 0.3.4
  */
 public class BFSParser implements Comparator<Integer> {
 
@@ -141,6 +141,43 @@ public class BFSParser implements Comparator<Integer> {
      */
     @Override
     public final int compare(final Integer n1, final Integer n2) {
+	final int c1 = comparison2.get(n1);
+	final int c2 = comparison2.get(n2);
+
+	if (c2<c1) return -1;
+	if (c1<c2) return 1;
+
+	final int d1 = graph.outDegree(n1);
+	final int d2 = graph.outDegree(n2);
+
+        if (d1==0 && d2==0) {
+	    return graph.inDegree(n2)-graph.inDegree(n1);
+	}
+
+        int in1 = 0, in2 = 0;
+	if (comparison.get(n1)==null) {
+	    final int[] outs1=graph.getSuccessors(n1);
+	    for (int i=0;i<d1;i++)
+		if (getBFSValue(outs1[i])!=-1) in1++;
+	    comparison.put(n1,in1);
+	} else {
+	    in1=comparison.get(n1);
+	}
+	if (comparison.get(n2)==null) {
+	    final int[] outs2=graph.getSuccessors(n2);
+	    for (int i=0;i<d2;i++)
+		if (getBFSValue(outs2[i])!=-1) in2++;
+	    comparison.put(n2,in2);
+	} else {
+	    in2=comparison.get(n2);
+	}
+	if (in1<in2) return -1;
+	if (in2<in1) return 1;
+	return graph.inDegree(n2)-graph.inDegree(n1);
+    }
+
+/*
+    public final int compare(final Integer n1, final Integer n2) {
 	int i,j;
 	final int c1,c2;
 	int in1,in2;
@@ -159,7 +196,7 @@ public class BFSParser implements Comparator<Integer> {
 
 	if (c2<c1) return -1;
 	if (c1<c2) return 1;
-	// EU
+        // EU
 // 	if (c2>c1) return -1;
 // 	if (c1>c2) return 1;
 
@@ -185,7 +222,7 @@ public class BFSParser implements Comparator<Integer> {
 	return graph.inDegree(n2)-graph.inDegree(n1);
 // 	return graph.outDegree(n1)-graph.outDegree(n2);
     }
-
+*/
     protected Integer[][] nodeBFS(final int node) throws Exception {
 	final int[] neighbours;
 	final Integer[][] result;
@@ -222,7 +259,7 @@ public class BFSParser implements Comparator<Integer> {
 	if (traverse[visitedNodes]>0) {
 	    zeros=false;
 	    comparison=new HashMap<>(traverse[visitedNodes]);
-	    Arrays.sort(r[0],0,traverse[visitedNodes],this);
+            Arrays.sort(r[0],0,traverse[visitedNodes],this);
 	    for (i=0;i<traverse[visitedNodes];i++)
 		addToQueue(r[0][i]);
 	    removed+=traverse[visitedNodes];

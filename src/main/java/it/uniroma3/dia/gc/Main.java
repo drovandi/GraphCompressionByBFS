@@ -43,14 +43,14 @@ import java.util.Random;
  * </p>
  *
  * @author  Guido Drovandi
- * @version 0.3.3
+ * @version 0.3.4
  */
 public final class Main {
 
     private Main() {}
 
     private static void printHelp() {
-	System.err.println("Graph Compression - version 0.3.3");
+	System.err.println("Graph Compression - version 0.3.4");
 	System.err.println();
 	System.err.println("Usage:");
 	System.err.println("\t java it.uniroma3.dia.gc.Main COMMANDS GRAPH [OPTIONS]");

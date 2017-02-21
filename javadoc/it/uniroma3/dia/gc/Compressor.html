@@ -18,7 +18,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":9,"i3":10,"i4":9,"i5":10,"i6":9};
+var methods = {"i0":10,"i1":10,"i2":9,"i3":10,"i4":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -75,13 +75,13 @@ var activeTableTab = "activeTableTab";
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
@@ -124,45 +124,6 @@ extends <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
-<!-- =========== FIELD SUMMARY =========== -->
-<ul class="blockList">
-<li class="blockList"><a name="field.summary">
-<!--   -->
-</a>
-<h3>Field Summary</h3>
-<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Field Summary table, listing fields, and an explanation">
-<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
-<tr>
-<th class="colFirst" scope="col">Modifier and Type</th>
-<th class="colLast" scope="col">Field and Description</th>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>private static int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../it/uniroma3/dia/gc/Compressor.html#AREA_COL_MIN">AREA_COL_MIN</a></span></code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>private static int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../it/uniroma3/dia/gc/Compressor.html#AREA_MIN">AREA_MIN</a></span></code>&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>private long</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../it/uniroma3/dia/gc/Compressor.html#bits">bits</a></span></code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>private <a href="../../../../it/uniroma3/dia/gc/code/PiEncoder.html" title="class in it.uniroma3.dia.gc.code">PiEncoder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../it/uniroma3/dia/gc/Compressor.html#encoder">encoder</a></span></code>&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>private boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../it/uniroma3/dia/gc/Compressor.html#fast">fast</a></span></code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>private <a href="../../../../it/uniroma3/dia/gc/io/Writer.html" title="class in it.uniroma3.dia.gc.io">Writer</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../it/uniroma3/dia/gc/Compressor.html#writer">writer</a></span></code>&nbsp;</td>
-</tr>
-</table>
-</li>
-</ul>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
 <ul class="blockList">
 <li class="blockList"><a name="constructor.summary">
@@ -202,7 +163,7 @@ extends <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../it/uniroma3/dia/gc/Compressor.html#compressChunk-it.uniroma3.dia.gc.Chunk-">compressChunk</a></span>(<a href="../../../../it/uniroma3/dia/gc/Chunk.html" title="class in it.uniroma3.dia.gc">Chunk</a>&nbsp;c)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../it/uniroma3/dia/gc/Compressor.html#compressChunk-it.uniroma3.dia.gc.Chunk-">compressChunk</a></span>(it.uniroma3.dia.gc.Chunk&nbsp;c)</code>&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>static void</code></td>
@@ -218,19 +179,8 @@ extends <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../it/uniroma3/dia/gc/Compressor.html#getBits--">getBits</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i4" class="altColor">
-<td class="colFirst"><code>private static long</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../it/uniroma3/dia/gc/Compressor.html#performCompression-it.uniroma3.dia.gc.Chunk-boolean-it.uniroma3.dia.gc.io.Writer-">performCompression</a></span>(<a href="../../../../it/uniroma3/dia/gc/Chunk.html" title="class in it.uniroma3.dia.gc">Chunk</a>&nbsp;c,
-                  boolean&nbsp;fast,
-                  <a href="../../../../it/uniroma3/dia/gc/io/Writer.html" title="class in it.uniroma3.dia.gc.io">Writer</a>&nbsp;writer)</code>&nbsp;</td>
-</tr>
-<tr id="i5" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../it/uniroma3/dia/gc/Compressor.html#printStatistics-java.io.PrintStream-">printStatistics</a></span>(<a href="http://docs.oracle.com/javase/8/docs/api/java/io/PrintStream.html?is-external=true" title="class or interface in java.io">PrintStream</a>&nbsp;out)</code>&nbsp;</td>
-</tr>
-<tr id="i6" class="altColor">
-<td class="colFirst"><code>private static long</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../it/uniroma3/dia/gc/Compressor.html#writeGraphVersion-double-it.uniroma3.dia.gc.io.Writer-">writeGraphVersion</a></span>(double&nbsp;version,
-                 <a href="../../../../it/uniroma3/dia/gc/io/Writer.html" title="class in it.uniroma3.dia.gc.io">Writer</a>&nbsp;writer)</code>&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -248,76 +198,6 @@ extends <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
-<!-- ============ FIELD DETAIL =========== -->
-<ul class="blockList">
-<li class="blockList"><a name="field.detail">
-<!--   -->
-</a>
-<h3>Field Detail</h3>
-<a name="AREA_MIN">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>AREA_MIN</h4>
-<pre>private static final&nbsp;int AREA_MIN</pre>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../../constant-values.html#it.uniroma3.dia.gc.Compressor.AREA_MIN">Constant Field Values</a></dd>
-</dl>
-</li>
-</ul>
-<a name="AREA_COL_MIN">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>AREA_COL_MIN</h4>
-<pre>private static final&nbsp;int AREA_COL_MIN</pre>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../../constant-values.html#it.uniroma3.dia.gc.Compressor.AREA_COL_MIN">Constant Field Values</a></dd>
-</dl>
-</li>
-</ul>
-<a name="writer">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>writer</h4>
-<pre>private final&nbsp;<a href="../../../../it/uniroma3/dia/gc/io/Writer.html" title="class in it.uniroma3.dia.gc.io">Writer</a> writer</pre>
-</li>
-</ul>
-<a name="encoder">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>encoder</h4>
-<pre>private final&nbsp;<a href="../../../../it/uniroma3/dia/gc/code/PiEncoder.html" title="class in it.uniroma3.dia.gc.code">PiEncoder</a> encoder</pre>
-</li>
-</ul>
-<a name="fast">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>fast</h4>
-<pre>private final&nbsp;boolean fast</pre>
-</li>
-</ul>
-<a name="bits">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>bits</h4>
-<pre>private&nbsp;long bits</pre>
-</li>
-</ul>
-</li>
-</ul>
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
 <ul class="blockList">
 <li class="blockList"><a name="constructor.detail">
@@ -348,28 +228,13 @@ extends <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="writeGraphVersion-double-it.uniroma3.dia.gc.io.Writer-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>writeGraphVersion</h4>
-<pre>private static&nbsp;long&nbsp;writeGraphVersion(double&nbsp;version,
-                                      <a href="../../../../it/uniroma3/dia/gc/io/Writer.html" title="class in it.uniroma3.dia.gc.io">Writer</a>&nbsp;writer)
-                               throws <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</a></pre>
-<dl>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</a></code></dd>
-</dl>
-</li>
-</ul>
 <a name="compressChunk-it.uniroma3.dia.gc.Chunk-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>compressChunk</h4>
-<pre>protected final&nbsp;void&nbsp;compressChunk(<a href="../../../../it/uniroma3/dia/gc/Chunk.html" title="class in it.uniroma3.dia.gc">Chunk</a>&nbsp;c)
+<pre>protected final&nbsp;void&nbsp;compressChunk(it.uniroma3.dia.gc.Chunk&nbsp;c)
                             throws <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</a></pre>
 <dl>
 <dt><span class="throwsLabel">Throws:</span></dt>
@@ -418,22 +283,6 @@ extends <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?
 <dd><code>fast</code> - fast compression algorithm (worse compression ratio)</dd>
 <dd><code>simMode</code> - do not write the compressed graph file</dd>
 <dd><code>info</code> - the stream where to write information</dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</a></code></dd>
-</dl>
-</li>
-</ul>
-<a name="performCompression-it.uniroma3.dia.gc.Chunk-boolean-it.uniroma3.dia.gc.io.Writer-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>performCompression</h4>
-<pre>private static&nbsp;long&nbsp;performCompression(<a href="../../../../it/uniroma3/dia/gc/Chunk.html" title="class in it.uniroma3.dia.gc">Chunk</a>&nbsp;c,
-                                       boolean&nbsp;fast,
-                                       <a href="../../../../it/uniroma3/dia/gc/io/Writer.html" title="class in it.uniroma3.dia.gc.io">Writer</a>&nbsp;writer)
-                                throws <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</a></pre>
-<dl>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</a></code></dd>
 </dl>
@@ -502,13 +351,13 @@ extends <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
