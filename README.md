@@ -5,8 +5,8 @@ more complex tricks. You can use the compressed version directly to query and na
 huge networks in main memory. Overall it is suitable for the Web Graph since it is able to exploit all the redundacies tipical of this graph.
 
 This is a very old project of mine based on an article published with Prof. Alberto Apostolico. The original webpage is on
-[my university site](http://www.dia.uniroma3.it/~drovandi/software.php), here you find the same code of the last version (0.3.2) with very minor
-useless changes.
+[my university site](http://www.dia.uniroma3.it/~drovandi/software.php). Here you find almost the same code of the version 0.3.2 with some minor
+changes and fixed the `Comparison method violates its general contract!` bug (under Java 6 it was a silent bug).
 
 Feel free to branch the project, modify it, and write something better than this. I don't think to have time to improve this software however,
 you can contact me for any information (do not expect quick answers, sorry).
@@ -42,15 +42,6 @@ Before this project, `WebGraph` was the only project (standard de facto) so I us
 to remove `WebGraph` from the requirements.
 
 *Note: The original project was compiled under Java 6 so if you need to run it in Java 6 just few (very simple) changes are required*
-
-**IMPORTANT**
-
-**The program was tested under Java 6 but from Java 7 the Java merge algorithm was changed.
-This is causing some issue, please use the `java.util.Arrays.useLegacyMergeSort=true` option:**
-```
-java -Djava.util.Arrays.useLegacyMergeSort=true -Xmx4g -Xms512m [CLASSPATH] it.uniroma3.dia.gc.Main OPTIONS
-```
-**I will check the error and hopefully fixing it.**
 
 ## Installation
 
@@ -137,6 +128,12 @@ Time: 6 ms - Time/Iteration:  0,06 ms
  5. Page:          4	Rank: 0,18702
  6. Page:          0	Rank: 0,00000
 ...
+```
+
+*Note: To deal with huge graphs you need a lot of memory use Java options `-Xmx` and `-Xms` to increase heap and stack space
+otherwise you'll get `java.lang.OutOfMemoryError: Java heap space`*
+```
+java -Xmx10g it.uniroma3.dia.gc.Main ax huge
 ```
 
 ## Acknowledgement
