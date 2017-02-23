@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>it.uniroma3.dia</groupId>
     <artifactId>GraphCompressionByBFS</artifactId>
-    <version>0.3.4</version>
+    <version>0.3.5</version>
     <packaging>jar</packaging>
     
     <developers>
@@ -42,7 +42,6 @@
                 <configuration>
                     <destDir>${javadoc.folder}</destDir>
                     <notimestamp>true</notimestamp>
-                    <doctitle>aaaaaaaaaaaaaaaaaaaaaa</doctitle>
                 </configuration>
             </plugin>
             <plugin>

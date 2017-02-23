@@ -136,6 +136,53 @@ otherwise you'll get `java.lang.OutOfMemoryError: Java heap space`*
 java -Xmx10g it.uniroma3.dia.gc.Main ax huge
 ```
 
+## Try you own code
+
+If you want to try different methods to order the neighbours of node during the BFS follow this steps.
+
+Step 1.
+Write your class extending BFSComparison:
+
+```
+package my.site.com;
+
+import it.uniroma3.dia.gc.comparator.BFSComparator;
+
+public class MyOwnBFSComparison extends BFSComparator {
+
+    @Override
+    public int compare(final Integer n1, final Integer n2) {
+        final int d1 = graph.outDegree(n1);
+        final int d2 = graph.outDegree(n2);
+        return d1 - d2;
+    }
+
+    @Override
+    public void beforeSort(final Integer[] a, final int length) {}
+
+    @Override
+    public void afterSort(final Integer[] a, final int length) {}
+
+    @Override
+    public void addToQueue(final int node) {}
+
+    @Override
+    public void nodeBFS(int node) {}
+
+}
+```
+
+Step 2.
+Add your package to the classpath.
+
+Step 3.
+Run the program:
+```
+java it.uniroma3.dia.gc.Main ax your_network -c my.site.com.MyOwnBFSComparison
+```
+
+You can take a look at the default method in the package `it.uniroma3.dia.gc.comparator`.
+
 ## Acknowledgement
 
 I wish to thank Sebastiano Vigna and Susana Ladra González for their interesting feedback on this project.

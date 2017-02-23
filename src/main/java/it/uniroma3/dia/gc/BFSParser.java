@@ -1,12 +1,10 @@
 
 package it.uniroma3.dia.gc;
 
+import it.uniroma3.dia.gc.comparator.BFSComparator;
 import java.io.PrintStream;
 import java.util.ArrayDeque;
 import java.util.Arrays;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * <p>This is a parser for a <code>Graph</code>.</p>
@@ -22,9 +20,9 @@ import java.util.Map;
  * <code>0</code> then it is not represented.</p>
  *
  * @author  Guido Drovandi
- * @version 0.3.4
+ * @version 0.3.5
  */
-public class BFSParser implements Comparator<Integer> {
+public class BFSParser {
 
     private int level,visitedNodes,firstNode;
     private int first,removed,counter;
@@ -35,8 +33,6 @@ public class BFSParser implements Comparator<Integer> {
     private Chunk chunk;
     private String log;
 
-    private Map<Integer,Integer> comparison,comparison2;
-
     private final int N;
     private final long E;
     private final int[] bfs;
@@ -46,6 +42,7 @@ public class BFSParser implements Comparator<Integer> {
     private final ArrayDeque<Integer> queue;
     private final PrintStream out,map,debug;
     private final boolean stats;
+    private final BFSComparator comparator;
 
     /**
      * Creates a parser of <code>graph</code>
@@ -59,8 +56,9 @@ public class BFSParser implements Comparator<Integer> {
     public BFSParser(final Graph graph,
 		     final boolean out,
 		     final boolean map,
+                     final BFSComparator comparator,
 		     final PrintStream debug) throws Exception {
-	this(graph,false,false,false,out,map,false,false,debug);
+	this(graph,false,false,false,out,map,false,false,comparator,debug);
     }
 
     /**
@@ -85,6 +83,7 @@ public class BFSParser implements Comparator<Integer> {
 		     final boolean map,
 		     final boolean susana,
 		     final boolean simMode,
+                     final BFSComparator comparator,
 		     final PrintStream debug) throws Exception {
 	int i;
 	this.graph=graph;
@@ -107,6 +106,9 @@ public class BFSParser implements Comparator<Integer> {
 	else     this.out=null;
 	if (map) this.map=new PrintStream(graph.getName()+".map");
 	else     this.map=null;
+        comparator.setGraph(graph);
+        comparator.setParser(this);
+        this.comparator = comparator;
 	this.debug=debug;
     }
 
@@ -117,112 +119,22 @@ public class BFSParser implements Comparator<Integer> {
 	bfs[node]=nodeUsed++;
 	queue.add(node);
 // 	System.err.println(node);
-	int i;
-	final int[] outs=graph.getSuccessors(node);
-	for (i=0;i<outs.length;i++) {
-	    Integer o=comparison2.get(outs[i]);
-	    if (o==null) o=new Integer(0);
-	    comparison2.put(outs[i],o+1);
-	}
+
+        comparator.addToQueue(node);
     }
 
-    protected final int getBFSValue(final int node) {
+    /**
+     * Returns the new <code>id</code> of <code>node</code>.
+     *
+     * @param node the queried <code>node</code>
+     * @return     the new <code>id</code> if assigned
+     */
+    public final int getBFSValue(final int node) {
 	if (bfs==null)
 	    return node;
 	return bfs[node];
     }
 
-    /**
-     * Compare two nodes.
-     *
-     * @param n1 the first node to be compared
-     * @param n2 the second node to be compared
-     * @return   the difference of the two outdegrees
-     */
-    @Override
-    public final int compare(final Integer n1, final Integer n2) {
-	final int c1 = comparison2.get(n1);
-	final int c2 = comparison2.get(n2);
-
-	if (c2<c1) return -1;
-	if (c1<c2) return 1;
-
-	final int d1 = graph.outDegree(n1);
-	final int d2 = graph.outDegree(n2);
-
-        if (d1==0 && d2==0) {
-	    return graph.inDegree(n2)-graph.inDegree(n1);
-	}
-
-        int in1 = 0, in2 = 0;
-	if (comparison.get(n1)==null) {
-	    final int[] outs1=graph.getSuccessors(n1);
-	    for (int i=0;i<d1;i++)
-		if (getBFSValue(outs1[i])!=-1) in1++;
-	    comparison.put(n1,in1);
-	} else {
-	    in1=comparison.get(n1);
-	}
-	if (comparison.get(n2)==null) {
-	    final int[] outs2=graph.getSuccessors(n2);
-	    for (int i=0;i<d2;i++)
-		if (getBFSValue(outs2[i])!=-1) in2++;
-	    comparison.put(n2,in2);
-	} else {
-	    in2=comparison.get(n2);
-	}
-	if (in1<in2) return -1;
-	if (in2<in1) return 1;
-	return graph.inDegree(n2)-graph.inDegree(n1);
-    }
-
-/*
-    public final int compare(final Integer n1, final Integer n2) {
-	int i,j;
-	final int c1,c2;
-	int in1,in2;
-	final int d1=graph.outDegree(n1);
-	final int d2=graph.outDegree(n2);
-
-	c1=comparison2.get(n1);
-	c2=comparison2.get(n2);
-
-	if (d1==0 && d2==0) {
-// 	    if (c1==0 && c2==0)
-// 		return graph.inDegree(n2)-graph.inDegree(n1);
-// 	    return c2-c1;
-	    return graph.inDegree(n2)-graph.inDegree(n1);
-	}
-
-	if (c2<c1) return -1;
-	if (c1<c2) return 1;
-        // EU
-// 	if (c2>c1) return -1;
-// 	if (c1>c2) return 1;
-
-	in1=in2=0;
-	if (comparison.get(n1)==null) {
-	    final int[] outs1=graph.getSuccessors(n1);
-	    for (i=0;i<d1;i++)
-		if (getBFSValue(outs1[i])!=-1) in1++;
-	    comparison.put(n1,in1);
-	} else {
-	    in1=comparison.get(n1);
-	}
-	if (comparison.get(n2)==null) {
-	    final int[] outs2=graph.getSuccessors(n2);
-	    for (i=0;i<d2;i++)
-		if (getBFSValue(outs2[i])!=-1) in2++;
-	    comparison.put(n2,in2);
-	} else {
-	    in2=comparison.get(n2);
-	}
-	if (in1<in2) return -1;
-	if (in2<in1) return 1;
-	return graph.inDegree(n2)-graph.inDegree(n1);
-// 	return graph.outDegree(n1)-graph.outDegree(n2);
-    }
-*/
     protected Integer[][] nodeBFS(final int node) throws Exception {
 	final int[] neighbours;
 	final Integer[][] result;
@@ -238,14 +150,16 @@ public class BFSParser implements Comparator<Integer> {
 	result[3][0]=0;
 
 	for (int n : neighbours) {
-	    if (bfs!=null)
-		comparison2.put(n,comparison2.get(n)-1);
 	    final int a=getBFSValue(n);
 	    if (a==-1)
 		result[0][result[2][0]++]=n;
 	    else
 		result[1][result[3][0]++]=a;
 	}
+        
+        if (bfs!=null) {
+            comparator.nodeBFS(node);
+        }
 
 	return result;
     }
@@ -258,8 +172,9 @@ public class BFSParser implements Comparator<Integer> {
 
 	if (traverse[visitedNodes]>0) {
 	    zeros=false;
-	    comparison=new HashMap<>(traverse[visitedNodes]);
-            Arrays.sort(r[0],0,traverse[visitedNodes],this);
+            comparator.beforeSort(r[0], traverse[visitedNodes]);
+            Arrays.sort(r[0],0,traverse[visitedNodes],comparator);
+            comparator.afterSort(r[0], traverse[visitedNodes]);
 	    for (i=0;i<traverse[visitedNodes];i++)
 		addToQueue(r[0][i]);
 	    removed+=traverse[visitedNodes];
@@ -311,8 +226,6 @@ public class BFSParser implements Comparator<Integer> {
 	this.removed=0;
 	this.nodeUsed=0;
 	this.bfsMillis=System.currentTimeMillis();
-
-	comparison2=new HashMap<>(10000);
 
 	first=root;
 

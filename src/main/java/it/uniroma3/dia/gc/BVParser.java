@@ -3,13 +3,14 @@ package it.uniroma3.dia.gc;
 
 import it.unimi.dsi.webgraph.BVGraph;
 import it.unimi.dsi.webgraph.LazyIntIterator;
+import it.uniroma3.dia.gc.comparator.BFSComparator;
 import java.io.PrintStream;
 
 /**
  * <p>This class implements an efficient parser for BVGraph.</p>
  *
  * @author  Guido Drovandi
- * @version 0.3.1
+ * @version 0.3.5
  */
 public class BVParser extends BFSParser {
 
@@ -24,9 +25,9 @@ public class BVParser extends BFSParser {
      * @param debug the <code>PrintStream</code> where to give information on the parsing process
      * @throws java.lang.Exception
      */
-    public BVParser(final BVGraphWrapper graph, final boolean out,
-		    final boolean map, final PrintStream debug) throws Exception {
-	this(graph,false,false,false,out,map,false,false,debug);
+    public BVParser(final BVGraphWrapper graph, final boolean out, final boolean map,
+            final BFSComparator comparator, final PrintStream debug) throws Exception {
+	this(graph,false,false,false,out,map,false,false,comparator,debug);
     }
 
     /**
@@ -46,8 +47,8 @@ public class BVParser extends BFSParser {
     public BVParser(final BVGraphWrapper graph, final boolean compression,
 		    final boolean fast, final boolean stats, final boolean out,
 		    final boolean map, final boolean susana, final boolean simMode,
-		    final PrintStream debug) throws Exception {
-	super(graph,compression,fast,stats,out,map,susana,simMode,debug);
+		    final BFSComparator comparator, final PrintStream debug) throws Exception {
+	super(graph,compression,fast,stats,out,map,susana,simMode,comparator,debug);
 	this.graph=graph.getBVGraph();
     }
 

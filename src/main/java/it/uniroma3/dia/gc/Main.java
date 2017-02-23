@@ -1,7 +1,10 @@
 
 package it.uniroma3.dia.gc;
 
+import it.uniroma3.dia.gc.comparator.BFSComparator;
+import it.uniroma3.dia.gc.comparator.BFSDefaultComparator;
 import it.uniroma3.dia.gc.exception.ASCIIGraphFormatException;
+import java.lang.reflect.Constructor;
 import java.util.Random;
 
 /**
@@ -43,14 +46,14 @@ import java.util.Random;
  * </p>
  *
  * @author  Guido Drovandi
- * @version 0.3.4
+ * @version 0.3.5
  */
 public final class Main {
 
     private Main() {}
 
     private static void printHelp() {
-	System.err.println("Graph Compression - version 0.3.4");
+	System.err.println("Graph Compression - version 0.3.5");
 	System.err.println();
 	System.err.println("Usage:");
 	System.err.println("\t java it.uniroma3.dia.gc.Main COMMANDS GRAPH [OPTIONS]");
@@ -71,6 +74,7 @@ public final class Main {
 	System.err.println("\t-f          - faster compression");
 	System.err.println("\t-s          - use original ids (BFS does not relabel nodes)");
 	System.err.println("\t-sim        - simulation mode, do not write the compressed graph file (only with 'x' or 'c')");
+        System.err.println("\t-c CLASS    - set the comparatore used during the BFS (CLASS is the full name of a class extending BFSComparator)");
 	System.err.println();
 	System.err.println("EXAMPLES:");
 	System.err.println("\t java it.uniroma3.dia.gc.Main a  cnr-2000 -l 1000 -map");
@@ -78,6 +82,7 @@ public final class Main {
 	System.err.println("\t java it.uniroma3.dia.gc.Main ac cnr-2000 -l 8");
 	System.err.println("\t java it.uniroma3.dia.gc.Main ax cnr-2000 -l 8");
 	System.err.println("\t java it.uniroma3.dia.gc.Main ax cnr-2000 -l 8 -f");
+        System.err.println("\t java it.uniroma3.dia.gc.Main ac cnr-2000 -c it.uniroma3.dia.gc.comparator.BFSDefaultComparator");
 	System.err.println();
     }
 
@@ -89,6 +94,7 @@ public final class Main {
 	int i,level,root;
 	boolean bv,ascii,asciiOffline,compressedGraph,compression,mapFile,stats,fast,directCompression,printTemp,susana,simMode;
 	bv=ascii=asciiOffline=compressedGraph=compression=mapFile=stats=fast=directCompression=printTemp=susana=simMode=false;
+        BFSComparator comparator = new BFSDefaultComparator();
 	char[] commands=args[0].toCharArray();
 	String network=args[1];
 	if (commands.length==0) {
@@ -182,6 +188,20 @@ public final class Main {
 		    susana=true;
 		} else if (args[i].equals("-sim")) {
 		    simMode=true;
+		} else if (args[i].equals("-c")) {
+		    if (i+1>=args.length) {
+			System.err.println("OPTIONS ERROR!");
+			printHelp();
+			System.exit(1);
+		    }
+		    try {
+                        comparator = (BFSComparator)Class.forName(args[i+1]).newInstance();
+		    } catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
+			System.err.println("WRONG COMPARATOR CLASS '"+args[i+1]+"'. IT MUST BE IN THE CLASSPATH AND EXTENDS BfsComparator!");
+			printHelp();
+			System.exit(1);
+		    }
+		    i++;
 		} else {
 		    System.err.println("UNKNOWN OPTIONS '"+args[i]+"'!");
 		    printHelp();
@@ -234,7 +254,7 @@ public final class Main {
 		}
 
 		try {
-		    parser=new BFSParser(graph,directCompression,fast,stats,printTemp,mapFile,susana,simMode,System.out);
+		    parser=new BFSParser(graph,directCompression,fast,stats,printTemp,mapFile,susana,simMode,comparator,System.out);
 		} catch (Exception e) {
 		    System.err.println("Cannot create graph parser for file '"+network+".net'!");
 		    System.err.println(e.getMessage());
@@ -256,7 +276,7 @@ public final class Main {
 		}
 
 		try {
-		    parser=new BVParser(g,directCompression,fast,stats,printTemp,mapFile,susana,simMode,System.out);
+		    parser=new BVParser(g,directCompression,fast,stats,printTemp,mapFile,susana,simMode,comparator,System.out);
 		} catch (Exception e) {
 		    System.err.println("Cannot create graph parser for BV graph '"+network+"'!");
 		    System.err.println(e.getMessage());
